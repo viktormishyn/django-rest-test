@@ -17,3 +17,31 @@ INSTALLED_APPS = [
 python3 manage.py makemigrations
 python3 manage.py makemigrations
 python3 manage.py migrate
+
+----------
+
+python3 manage.py shell
+
+>>> from api_basic.models import Article
+>>> from api_basic.serializers import ArticleSerializer
+>>> from rest_framework.renderers import JSONRenderer
+>>> from rest_framework.parsers import JSONParcer
+>>> from rest_framework.parsers import JSONParser
+
+>>> a = Article(title="Georgia", author="Ray Charles", email="ray@gmail.com")
+>>> a.save()
+
+>>> serializer = ArticleSerializer(a)
+>>> serializer.data
+{'title': 'Georgia', 'author': 'Ray Charles', 'email': 'ray@gmail.com', 'date': '2021-04-23T13:32:31.002364Z'}
+>>> content = JSONRenderer().render(serializer.data)
+>>> content
+b'{"title":"Georgia","author":"Ray Charles","email":"ray@gmail.com","date":"2021-04-23T13:32:31.002364Z"}'
+
+>>> serializer = ArticleSerializer(Article.objects.all(), many=True)
+>>> serializer.data
+[OrderedDict([('title', 'Title'), ('author', 'John Adams'), ('email', 'john@gmail.com'), ('date', '2021-04-23T13:28:04.631405Z')]), 
+OrderedDict([('title', 'Georgia'), ('author', 'Ray Charles'), ('email', 'ray@gmail.com'), ('date', '2021-04-23T13:32:31.002364Z')])]
+
+------------
+
