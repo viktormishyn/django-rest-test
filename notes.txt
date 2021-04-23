@@ -6,3 +6,10 @@ python3 manage.py runserver
 python3 manage.py startapp <app_name>
 
 python3 manage.py createsuperuser
+
+# We should add our rest_framework to INSTALLED_APPS in settings.py
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+    '<app_name>',
+]
