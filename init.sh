@@ -10,6 +10,7 @@ if [ ! -f "requirements.txt" ]; then
   pip install wheel
   pip install django
   pip install djangorestframework
+  pip install autopep8
   pip freeze > requirements.txt
 else
   echo "Found requirements.txt. Installing requirements..."
