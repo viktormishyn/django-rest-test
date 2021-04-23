@@ -45,3 +45,4 @@ OrderedDict([('title', 'Georgia'), ('author', 'Ray Charles'), ('email', 'ray@gma
 
 ------------
 
+For token authentication add 'rest_framework.authtoken' to INSTALLED_APPS in settings.py, then migrate.
