@@ -13,3 +13,7 @@ INSTALLED_APPS = [
     'rest_framework',
     '<app_name>',
 ]
+
+python3 manage.py makemigrations
+python3 manage.py makemigrations
+python3 manage.py migrate
