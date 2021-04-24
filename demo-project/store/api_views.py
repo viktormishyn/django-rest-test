@@ -4,13 +4,16 @@ from store.models import Product
 
 from django_filters.rest_framework import DjangoFilterBackend
 
+from rest_framework.filters import SearchFilter
+
 class ProductList(ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
     # filtering
-    filter_backends = (DjangoFilterBackend,)
+    filter_backends = (DjangoFilterBackend, SearchFilter)
     filter_fields = ('id',)
+    search_fields = ('name', 'description')
 
     def get_queryset(self):
         # overwrite get_queryset method if 'on_sale' query parameter is set to true
