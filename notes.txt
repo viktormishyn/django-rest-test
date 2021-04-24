@@ -64,3 +64,5 @@ b'{"id":1,"name":"Mineral Water Strawberry!","description":"Natural-flavored str
 "price":1.0,"sale_start":null,"sale_end":null,"is_on_sale":false,"current_price":1.0}'
 
 -------------------------------------------------------------
+
+curl -X POST http://localhost:8000/api/v1/products/new -d price=1.00 -d name='New Product', -d description='Description'
